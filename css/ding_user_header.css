@@ -1,0 +1,44 @@
+/* Raw styles */
+.ding-user-block {
+    font-size: 85%;
+}
+.user-stats-row {
+    display: inline-block;
+    width: 100%;
+}
+
+.stats-label {
+    float: left;
+}
+
+.stats-count {
+    float: right;
+}
+
+.user-links {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.user-links a {
+    text-decoration: underline !important;
+    color: #000000;
+}
+
+.view-user {
+    float: left;
+}
+
+.separator {
+    float: left;
+    margin: 0 5px;
+}
+
+.pane-search-form {
+    display: block !important;
+}
+
+.topbar-inner .topbar-menu {
+    display: none;
+}

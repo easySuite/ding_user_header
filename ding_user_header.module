@@ -1,0 +1,134 @@
+<?php
+/**
+ * @file
+ * ding_user_header.module
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function ding_user_header_block_info() {
+  $block['ding_user_header_info'] = array(
+    'info' => t('Ding user header'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $block;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ding_user_header_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'ding_user_header_info':
+      if (user_is_logged_in() && !user_access('administer')) {
+        $content = theme('ding_user_header_block', ding_user_header_display_callback());
+      }
+      elseif (user_access('administer')) {
+        $content = theme('ding_user_header_block');
+      }
+      else {
+        $user_login_form = drupal_get_form('user_login_block');
+        $content = drupal_render($user_login_form);
+      }
+
+      $block['content'] = array(
+        '#markup' => $content,
+        '#attached' => array(
+          'css' => drupal_add_css(drupal_get_path('module', 'ding_user_header') . '/css/ding_user_header.css'),
+        ),
+      );
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Callback function.
+ */
+function ding_user_header_display_callback() {
+  global $user;
+
+  $content = array();
+
+  $loans = count(ding_provider_invoke_page('loan', 'list', $user));
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My loans'),
+      'count' => $loans,
+    ),
+  );
+
+  $types = ding_provider_invoke_page('reservation', 'list', $user);
+  $count = 0;
+  foreach ($types as $type) {
+    $count += count($type);
+  }
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My reservations'),
+      'count' => $count,
+    ),
+  );
+
+  $debts = count(ding_provider_invoke_page('debt', 'list', $user));
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My debts'),
+      'count' => $debts,
+    ),
+  );
+
+  $bookmarks = ding_bookmark_count_number($user);
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My bookmarks'),
+      'count' => $bookmarks,
+    ),
+  );
+
+  return $content;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ding_user_header_theme($existing, $type, $theme, $path) {
+  return array(
+    'ding_user_header_block' => array(
+      'variables' => array('variables' => array()),
+      'template' => 'ding-user-header-block',
+      'path' => $path . '/templates',
+    ),
+    'ding_user_header_user_stats' => array(
+      'variables' => array('status' => array()),
+      'template' => 'ding-user-header-stats-row',
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ding_user_header_preprocess_ding2_site_template(&$variables) {
+  // Prevent infinite redirections.
+  unset($variables['navigation']);
+
+  $block = module_invoke('ding_user_header', 'block_view', 'ding_user_header_info');
+
+  $output = '<div class="ding-user-header-block">';
+  $output .= render($block['content']);
+  $output .= '</div>';
+
+  $existing_content = $variables['content']['header'];
+  $variables['content']['header'] = $existing_content . $output;
+}
