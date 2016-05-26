@@ -24,7 +24,8 @@ function ding_user_header_block_view($delta = '') {
 
   switch ($delta) {
     case 'ding_user_header_info':
-      if (user_is_logged_in() && user_has_role(8)) {
+      $provider_role = user_role_load_by_name('provider');
+      if (user_is_logged_in() && $provider_role && user_has_role($provider_role->rid)) {
         $content = theme('ding_user_header_block', ding_user_header_display_callback());
       }
       elseif (!user_is_logged_in()) {
