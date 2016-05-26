@@ -24,15 +24,15 @@ function ding_user_header_block_view($delta = '') {
 
   switch ($delta) {
     case 'ding_user_header_info':
-      if (user_is_logged_in() && !user_access('administer')) {
+      if (user_is_logged_in() && user_has_role(8)) {
         $content = theme('ding_user_header_block', ding_user_header_display_callback());
       }
-      elseif (user_access('administer')) {
-        $content = theme('ding_user_header_block');
-      }
-      else {
+      elseif (!user_is_logged_in()) {
         $user_login_form = drupal_get_form('user_login_block');
         $content = drupal_render($user_login_form);
+      }
+      else {
+        $content = theme('ding_user_header_block');
       }
 
       $block['content'] = array(
