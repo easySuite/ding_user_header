@@ -1,44 +1,255 @@
+/**
+ * Mixins
+ *
+ * @author magnify
+ */
+/* Breakpoints
+   ========================================================================== */
+/* Media query
+   ========================================================================== */
+/* Breakpoints
+   ========================================================================== */
+/* Typography mixins
+ *
+ * These are mixins to allow for use in media queries
+   ========================================================================== */
+/* Availability
+   ========================================================================== */
+/* Pseudo arrow
+ *
+ * Usage example: pseudo-arrow(10px, #000, top, center, $offset: 20px)
+   ========================================================================== */
+/* Colors variables
+   ========================================================================== */
+section .pane-search-form {
+  float: left;
+  width: 66.66667%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div .ding-user-header-block {
+  float: right;
+  width: 33.33333%;
+  margin-right: 0%;
+  margin-left: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+section .user-field-wrapper {
+  float: right;
+  width: 33.33333%;
+  margin-right: 0%;
+  margin-left: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.header-wrapper {
+  overflow: hidden;
+  height: auto;
+}
+
+section .navigation-wrapper {
+  display: none;
+}
+
+.topbar-menu {
+  display: none;
+}
+
+.logo {
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-wrapper {
+    height: auto;
+  }
+
+  section .pane-search-form {
+    float: left;
+    width: 66.66667%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  div .ding-user-header-block {
+    float: left;
+    width: 33.33333%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  section .user-field-wrapper {
+    float: left;
+    width: 33.33333%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .header-wrapper .header-inner > section {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-inner section.search {
+    margin-top: 205px;
+  }
+
+  div .ding-user-header-block {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  div .ding-user-header-block div .form-actions input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  div .ding-user-header-block div .form-item-pass {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+}
+.search .form-text,
+.search-field-in-content
+.form-text, .user .form-text,
+.search .form-submit,
+.search-field-in-content
+.form-submit,
+.user .form-submit {
+  height: 60px;
+}
+
+.header-wrapper {
+  padding: 10px 0 10px;
+}
+
+.pane-user-login {
+  display: none !important;
+}
+
+.header-wrapper .header-inner > section {
+  padding: 10px;
+}
+
+.not-logged-in .js-topbar-search {
+  display: block !important;
+}
+
 /* Raw styles */
-.ding-user-block {
-    font-size: 85%;
+.ding-user-header-block .ding-user-block {
+  font-size: 85%;
 }
-.user-stats-row {
-    display: inline-block;
-    width: 100%;
+.ding-user-header-block .user-stats-row {
+  display: inline-block;
+  width: 100%;
+}
+.ding-user-header-block .stats-label {
+  float: left;
+}
+.ding-user-header-block .stats-count {
+  float: right;
+}
+.ding-user-header-block .user-links {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+}
+.ding-user-header-block .user-links a {
+  text-decoration: underline !important;
+  color: #000000;
+}
+.ding-user-header-block .view-user {
+  float: left;
+}
+.ding-user-header-block .separator {
+  float: left;
+  margin: 0 5px;
+}
+.ding-user-header-block .pane-search-form {
+  display: block !important;
+}
+.ding-user-header-block .topbar-inner .topbar-menu {
+  display: none;
+}
+.ding-user-header-block [class^="icon-"], .ding-user-header-block [class*=" icon-"] {
+  margin: 10px 0 0 10px;
+  font-size: 130%;
+}
+.ding-user-header-block .icon-user, .ding-user-header-block .icon-lock {
+  position: absolute;
+}
+.ding-user-header-block div .form-item-pass {
+  display: inline-block;
+  width: 30%;
+  position: absolute;
+}
+.ding-user-header-block div .form-item-pass input [type="password"] {
+  display: inline;
+}
+.ding-user-header-block input[type="text"],
+.ding-user-header-block input[type="password"],
+.ding-user-header-block input[type="date"],
+.ding-user-header-block input[type="datetime"],
+.ding-user-header-block input[type="email"],
+.ding-user-header-block input[type="number"],
+.ding-user-header-block input[type="search"],
+.ding-user-header-block input[type="tel"],
+.ding-user-header-block input[type="time"],
+.ding-user-header-block input[type="url"],
+.ding-user-header-block textarea {
+  padding: 10px 10px 10px 45px;
+  font-size: 110%;
+}
+.ding-user-header-block div .form-actions {
+  display: inline;
+}
+.ding-user-header-block div .form-actions input[type="submit"] {
+  height: 43px;
+  position: relative;
+  margin-top: 24px;
+  float: right;
+  font-size: 110%;
+}
+.ding-user-header-block .user-stats .user-stats-row {
+  height: 20px;
+}
+.ding-user-header-block .user-links ul li {
+  display: inline;
+  padding-right: 10px;
 }
 
-.stats-label {
-    float: left;
-}
-
-.stats-count {
-    float: right;
-}
-
-.user-links {
-    display: inline-block;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.user-links a {
-    text-decoration: underline !important;
-    color: #000000;
-}
-
-.view-user {
-    float: left;
-}
-
-.separator {
-    float: left;
-    margin: 0 5px;
-}
-
-.pane-search-form {
-    display: block !important;
-}
-
-.topbar-inner .topbar-menu {
-    display: none;
+.site-header > .content-wrapper.content-inner.messages .error .ding-user-header-block .form-item-name, .site-header > .content-wrapper.content-inner.messages .error .form-item-pass {
+  border-color: red;
 }
