@@ -136,12 +136,13 @@ section .navigation-wrapper {
 
 /* Raw styles */
 .ding-user-header-block {
-  color: $white;
   font-weight: bold;
   padding-top: 18px;
   padding-bottom: 10px;
 
   .user-stats {
+    color: $white;
+
     a {
       color: $white;
       font-weight: bold;
@@ -167,6 +168,7 @@ section .navigation-wrapper {
 
         &:before {
           content: "|";
+          color: $white;
           margin-right: 10px;
         }
       }
