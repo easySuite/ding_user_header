@@ -230,7 +230,8 @@ section .navigation-wrapper {
     margin-right: 10px;
   }
   .topbar-menu .topbar-link-search,
-  .topbar-menu .topbar-link-user {
+  .topbar-menu .topbar-link-user,
+  .topbar-menu .topbar-link-user-account {
     display: none;
   }
 
