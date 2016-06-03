@@ -54,57 +54,6 @@ section .navigation-wrapper {
   padding-bottom: 10px;
 }
 
-@include small-medium() {
-  .header-wrapper {
-    height: auto;
-  }
-
-  .header-inner {
-    $zen-column-count: 12;
-    $zen-gutter-width: 10px;
-  }
-
-  section .pane-search-form {
-    @include zen-grid-item(8, 1);
-  }
-
-  div .ding-user-header-block {
-    @include zen-grid-item(4, 1);
-  }
-
-  section .user-field-wrapper {
-    @include zen-grid-item(4, 1);
-  }
-
-  .header-wrapper .header-inner>section{
-    display: block;
-    width: 100%;
-    height:100%;
-  }
-
-  .header-inner section.search {
-    margin-top: 205px;
-  }
-
-  div .ding-user-header-block {
-    display: block;
-    width: 100%;
-    height:100%;
-
-    div .form-actions input[type="submit"] {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    div .form-item-pass {
-      display: block;
-      width:  100%;
-      position: relative;
-    }
-  }
-}
-
 .search .form-text,
 .search-field-in-content
 .form-text, .user .form-text,
@@ -226,10 +175,6 @@ section .navigation-wrapper {
     display: block !important;
   }
 
-  .topbar-inner .topbar-menu {
-    display: none;
-  }
-
   [class^="icon-"], [class*=" icon-"] {
     margin: 10px 0 0 10px;
     font-size: 130%;
@@ -293,4 +238,66 @@ section .navigation-wrapper {
 
 .search.js-topbar-search {
   display: block !important;
+}
+
+@include small-medium() {
+  .header-wrapper {
+    height: auto;
+  }
+  
+  .topbar-menu {
+    display: block;
+    margin-right: 10px;
+    
+    .topbar-link-search,
+    .topbar-link-user {
+      display: none;
+    }
+  }
+  
+  .header-wrapper .header-inner > section.js-mobile-user-menu {
+    display: none;
+  }
+
+  .header-inner {
+    $zen-column-count: 12;
+    $zen-gutter-width: 10px;
+  }
+
+  section .pane-search-form {
+    @include zen-grid-item(8, 1);
+  }
+
+  div .ding-user-header-block {
+    @include zen-grid-item(4, 1);
+  }
+
+  section .user-field-wrapper {
+    @include zen-grid-item(4, 1);
+  }
+
+  .header-wrapper .header-inner>section{
+    display: block;
+    width: 100%;
+    height:100%;
+  }
+
+  div .ding-user-header-block {
+    display: block;
+    width: 100%;
+    height:100%;
+    clear: both;
+
+    div .form-actions input[type="submit"] {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    div .form-item-pass {
+      display: block;
+      width:  100%;
+      position: relative;
+    }
+  }
 }

@@ -69,73 +69,6 @@ section .navigation-wrapper {
   padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .header-wrapper {
-    height: auto;
-  }
-
-  section .pane-search-form {
-    float: left;
-    width: 66.66667%;
-    margin-left: 0%;
-    margin-right: -100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  div .ding-user-header-block {
-    float: left;
-    width: 33.33333%;
-    margin-left: 0%;
-    margin-right: -100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  section .user-field-wrapper {
-    float: left;
-    width: 33.33333%;
-    margin-left: 0%;
-    margin-right: -100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-
-  .header-wrapper .header-inner > section {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .header-inner section.search {
-    margin-top: 205px;
-  }
-
-  div .ding-user-header-block {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  div .ding-user-header-block div .form-actions input[type="submit"] {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-  }
-  div .ding-user-header-block div .form-item-pass {
-    display: block;
-    width: 100%;
-    position: relative;
-  }
-}
 .search .form-text,
 .search-field-in-content
 .form-text, .user .form-text,
@@ -234,9 +167,6 @@ section .navigation-wrapper {
 .ding-user-header-block .pane-search-form {
   display: block !important;
 }
-.ding-user-header-block .topbar-inner .topbar-menu {
-  display: none;
-}
 .ding-user-header-block [class^="icon-"], .ding-user-header-block [class*=" icon-"] {
   margin: 10px 0 0 10px;
   font-size: 130%;
@@ -288,4 +218,82 @@ section .navigation-wrapper {
 
 .search.js-topbar-search {
   display: block !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-wrapper {
+    height: auto;
+  }
+
+  .topbar-menu {
+    display: block;
+    margin-right: 10px;
+  }
+  .topbar-menu .topbar-link-search,
+  .topbar-menu .topbar-link-user {
+    display: none;
+  }
+
+  .header-wrapper .header-inner > section.js-mobile-user-menu {
+    display: none;
+  }
+
+  section .pane-search-form {
+    float: left;
+    width: 66.66667%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  div .ding-user-header-block {
+    float: left;
+    width: 33.33333%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  section .user-field-wrapper {
+    float: left;
+    width: 33.33333%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .header-wrapper .header-inner > section {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  div .ding-user-header-block {
+    display: block;
+    width: 100%;
+    height: 100%;
+    clear: both;
+  }
+  div .ding-user-header-block div .form-actions input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  div .ding-user-header-block div .form-item-pass {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
 }
