@@ -12,6 +12,24 @@
 
 
     $('.js-topbar-user').remove();
+	
+	function ddbasic_mobile_menu(open) {
+    if (open) {
+      // If the user clicked the active link, close it instead.
+      if ( $('.topbar-menu .leaf .topbar-link-menu').hasClass('active') ) {
+        $('.topbar-menu .leaf .topbar-link-menu').toggleClass('active');
+        $('.new-header .js-topbar-menu').css("display", "none");
+      }
+      else {
+        // Display the element.
+        $('.topbar-menu .leaf .topbar-link-menu').toggleClass('active');
+        $('.new-header .js-topbar-menu').css("display", "block");
+      }
+    }
+    else {
+      $('.topbar-menu .leaf .topbar-link-menu').removeClass('active');
+    }
+  }
 
   });
 }(jQuery));
