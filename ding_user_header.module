@@ -138,5 +138,49 @@ function ding_user_header_preprocess_ding2_site_template(&$variables) {
   $output .= '</div>';
 
   $existing_content = $variables['content']['header'];
+
   $variables['content']['header'] = $existing_content . $output;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ding_user_header_preprocess_25_50_25(&$vars) {
+  // Get and render form.
+  $search_form = drupal_get_form('search_block_form');
+  $search_form = drupal_render($search_form);
+
+  $search_form_rendered = '<div class="search">';
+  $search_form_rendered .= '<div class="search-field-wrapper">';
+  $search_form_rendered .= $search_form;
+  $search_form_rendered .= '</div>';
+  $search_form_rendered .= '</div>';
+
+  // Lets build a panel content from beginning with additional form.
+  // Firstly get all panes which relates to out region.
+  $panes = $vars['renderer']->prepared['panes'];
+  $panes = array_filter($panes, function($i) {
+    return $i->panel == 'main_content';
+  });
+
+  $position = 0;
+  array_walk($panes, function($i, $k) use(&$position) {
+    if ($i->subtype == 'search_result_count') {
+      $position = $i->position . '.1';
+    }
+  });
+
+  $pids = array_keys($panes);
+  $rendered_panes = $vars['renderer']->rendered['panes'];
+  //Start building panel from beginning.
+  $output[$position] = $search_form_rendered;
+  foreach ($pids as $pid) {
+    if (!empty($rendered_panes[$pid])) {
+      $output[$panes[$pid]->position] = $rendered_panes[$pid];
+    }
+  }
+  uksort($output, function($a, $b) {
+    return $a >= $b;
+  });
+  $vars['content']['main_content'] = implode('', $output);
 }
