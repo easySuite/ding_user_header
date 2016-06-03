@@ -57,11 +57,6 @@ section .user-field-wrapper {
   box-sizing: border-box;
 }
 
-.header-wrapper {
-  overflow: hidden;
-  height: auto;
-}
-
 section .navigation-wrapper {
   display: none;
 }
@@ -152,7 +147,9 @@ section .navigation-wrapper {
 }
 
 .header-wrapper {
-  padding: 10px 0 10px;
+  padding: 0 0 10px;
+  overflow: hidden;
+  height: auto;
 }
 
 .pane-user-login {
@@ -168,8 +165,45 @@ section .navigation-wrapper {
 }
 
 /* Raw styles */
+.ding-user-header-block {
+  font-weight: bold;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+.ding-user-header-block .user-stats {
+  color: #fff;
+}
+.ding-user-header-block .user-stats a {
+  color: #fff;
+  font-weight: bold;
+}
+.ding-user-header-block .user-links ul {
+  margin: 0;
+  padding: 0;
+}
+.ding-user-header-block .user-links ul li {
+  margin-right: 10px;
+}
+.ding-user-header-block .user-links ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+.ding-user-header-block .user-links ul li:first-child:before {
+  display: none;
+}
+.ding-user-header-block .user-links ul li:before {
+  content: "|";
+  color: #fff;
+  margin-right: 10px;
+}
 .ding-user-header-block .ding-user-block {
   font-size: 85%;
+}
+.ding-user-header-block .form-item-pass label {
+  display: none;
+}
+.ding-user-header-block label {
+  color: #fff;
 }
 .ding-user-header-block .user-stats-row {
   display: inline-block;
@@ -232,13 +266,16 @@ section .navigation-wrapper {
   padding: 10px 10px 10px 45px;
   font-size: 110%;
 }
+.ding-user-header-block input[type="password"] {
+  padding-left: 35px;
+}
 .ding-user-header-block div .form-actions {
   display: inline;
 }
 .ding-user-header-block div .form-actions input[type="submit"] {
   height: 43px;
   position: relative;
-  margin-top: 24px;
+  margin-top: 0;
   float: right;
   font-size: 110%;
 }
@@ -247,9 +284,8 @@ section .navigation-wrapper {
 }
 .ding-user-header-block .user-links ul li {
   display: inline;
-  padding-right: 10px;
 }
 
-.site-header > .content-wrapper.content-inner.messages .error .ding-user-header-block .form-item-name, .site-header > .content-wrapper.content-inner.messages .error .form-item-pass {
-  border-color: red;
+.search.js-topbar-search {
+  display: block !important;
 }

@@ -53,15 +53,19 @@ function ding_user_header_block_view($delta = '') {
  */
 function ding_user_header_display_callback() {
   global $user;
+  
+  $userID = $user->uid;
 
   $content = array();
 
   $loans = count(ding_provider_invoke_page('loan', 'list', $user));
+  
   $content['status'][] = array(
     '#theme' => 'ding_user_header_user_stats',
     '#status' => array(
       'label' => t('My loans'),
       'count' => $loans,
+      'url' => 'user/' . $userID . '/status/loans',
     ),
   );
 
@@ -75,6 +79,7 @@ function ding_user_header_display_callback() {
     '#status' => array(
       'label' => t('My reservations'),
       'count' => $count,
+      'url' => 'user/' . $userID . '/status/reservations',
     ),
   );
 
@@ -84,6 +89,7 @@ function ding_user_header_display_callback() {
     '#status' => array(
       'label' => t('My debts'),
       'count' => $debts,
+      'url' => 'user/' . $userID . '/status/debts',
     ),
   );
 
@@ -93,6 +99,7 @@ function ding_user_header_display_callback() {
     '#status' => array(
       'label' => t('My bookmarks'),
       'count' => $bookmarks,
+      'url' => 'user/' . $userID . '/bookmarks',
     ),
   );
 
