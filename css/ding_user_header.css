@@ -166,10 +166,12 @@ section .navigation-wrapper {
 
 /* Raw styles */
 .ding-user-header-block {
-  color: #fff;
   font-weight: bold;
   padding-top: 18px;
   padding-bottom: 10px;
+}
+.ding-user-header-block .user-stats {
+  color: #fff;
 }
 .ding-user-header-block .user-stats a {
   color: #fff;
@@ -191,6 +193,7 @@ section .navigation-wrapper {
 }
 .ding-user-header-block .user-links ul li:before {
   content: "|";
+  color: #fff;
   margin-right: 10px;
 }
 .ding-user-header-block .ding-user-block {
