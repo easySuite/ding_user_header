@@ -1,0 +1,294 @@
+@import "_mixins";
+@import "susy";
+@import "zen-grids";
+
+/* Colors variables
+   ========================================================================== */
+
+$white:                   #fff;
+$dark-gray:               #ccc;
+$darker-gray:             #333;
+$light-gray:              #dadada;
+$lighter-gray:            #e5e5e5;
+$gray:                    #ccc;
+$black:                   #000;
+$gray-transparent-bg:     rgba( 0, 0, 0, 0.7);
+$red:                     #e10d3f;
+$orange:                  #ea6621;
+$green_light:             #b9c650;
+$blue:                    #008abe;
+$purple:                  #a34da4;
+$marine:                  #47cfd1;
+$yellow:                  #eae328;
+$green:                   #78a854;
+
+$zen-columns:             12;
+$zen-gutters:             20px;
+
+.header-inner {
+  $zen-column-count: 12;
+  $zen-gutter-width: 10px;
+}
+
+section .pane-search-form {
+  @include zen-grid-item(8, 1);
+}
+
+div .ding-user-header-block {
+  @include zen-grid-item(4, 1, right);
+}
+
+section .user-field-wrapper {
+  @include zen-grid-item(4, 1, right);
+}
+
+section .navigation-wrapper {
+  display: none;
+}
+
+.topbar-menu {
+  display: none;
+}
+
+.logo {
+  padding-bottom: 10px;
+}
+
+@include small-medium() {
+  .header-wrapper {
+    height: auto;
+  }
+
+  .header-inner {
+    $zen-column-count: 12;
+    $zen-gutter-width: 10px;
+  }
+
+  section .pane-search-form {
+    @include zen-grid-item(8, 1);
+  }
+
+  div .ding-user-header-block {
+    @include zen-grid-item(4, 1);
+  }
+
+  section .user-field-wrapper {
+    @include zen-grid-item(4, 1);
+  }
+
+  .header-wrapper .header-inner>section{
+    display: block;
+    width: 100%;
+    height:100%;
+  }
+
+  .header-inner section.search {
+    margin-top: 205px;
+  }
+
+  div .ding-user-header-block {
+    display: block;
+    width: 100%;
+    height:100%;
+
+    div .form-actions input[type="submit"] {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    div .form-item-pass {
+      display: block;
+      width:  100%;
+      position: relative;
+    }
+  }
+}
+
+.search .form-text,
+.search-field-in-content
+.form-text, .user .form-text,
+.search .form-submit,
+.search-field-in-content
+.form-submit,
+.user .form-submit {
+  height: 60px;
+}
+
+.header-wrapper{
+  padding: 0 0 10px;
+  overflow: hidden;
+  height: auto;
+}
+
+.pane-user-login {
+  display: none !important;
+}
+
+.header-wrapper .header-inner>section  {
+  padding: 10px;
+}
+
+.not-logged-in .js-topbar-search  {
+  display: block !important;
+
+}
+
+/* Raw styles */
+.ding-user-header-block {
+  color: $white;
+  font-weight: bold;
+  padding-top: 18px;
+  padding-bottom: 10px;
+
+  .user-stats {
+    a {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+
+  .user-links {
+    ul {
+      margin: 0;
+      padding: 0;
+      
+      li {
+        margin-right: 10px;
+        
+        a {
+          color: $white;
+          font-weight: bold;
+        }
+
+        &:first-child:before {
+          display: none;
+        }
+
+        &:before {
+          content: "|";
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .ding-user-block {
+    font-size: 85%;
+  }
+  
+  .form-item-pass {
+    label {
+      display: none;
+    }
+  }
+  
+  label {
+    color: #fff;
+  }
+
+  .user-stats-row {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .stats-label {
+    float: left;
+  }
+
+  .stats-count {
+    float: right;
+  }
+
+  .user-links {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .user-links a {
+    text-decoration: underline !important;
+    color: #000000;
+  }
+
+  .view-user {
+    float: left;
+  }
+
+  .separator {
+    float: left;
+    margin: 0 5px;
+  }
+
+  .pane-search-form {
+    display: block !important;
+  }
+
+  .topbar-inner .topbar-menu {
+    display: none;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    margin: 10px 0 0 10px;
+    font-size: 130%;
+  }
+
+  .icon-user, .icon-lock {
+    position: absolute;
+  }
+
+  div .form-item-pass {
+    display: inline-block;
+    width: 30%;
+    position: absolute;
+
+    input [type="password"] {
+      display: inline;
+    }
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea {
+    padding: 10px 10px 10px 45px;
+    font-size: 110%;
+  }
+
+  input[type="password"] {
+    padding-left: 35px;
+  }
+
+  div .form-actions {
+    display: inline;
+
+    input[type="submit"] {
+      height: 43px;
+      position: relative;
+      margin-top: 0;
+      float: right;
+      font-size: 110%;
+    }
+  }
+
+  .user-stats {
+    .user-stats-row{
+      height: 20px;
+    }
+  }
+
+  .user-links ul li {
+    display: inline;
+  }
+}
+
+.search.js-topbar-search {
+  display: block !important;
+}
