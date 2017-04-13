@@ -89,6 +89,12 @@ section .navigation-wrapper {
   padding-top: 18px;
   padding-bottom: 10px;
 
+
+  input[name="name"],
+  input[name="pass"]{
+    height: 43px;
+  }
+
   .user-stats {
     color: $white;
 
@@ -189,7 +195,7 @@ section .navigation-wrapper {
     width: 30%;
     position: absolute;
 
-    input [type="password"] {
+    input[type="password"] {
       display: inline;
     }
   }
