@@ -103,6 +103,10 @@ section .navigation-wrapper {
   padding-top: 18px;
   padding-bottom: 10px;
 }
+.ding-user-header-block input[name="name"],
+.ding-user-header-block input[name="pass"] {
+  height: 43px;
+}
 .ding-user-header-block .user-stats {
   color: #fff;
 }
@@ -179,7 +183,7 @@ section .navigation-wrapper {
   width: 30%;
   position: absolute;
 }
-.ding-user-header-block div .form-item-pass input [type="password"] {
+.ding-user-header-block div .form-item-pass input[type="password"] {
   display: inline;
 }
 .ding-user-header-block input[type="text"],
