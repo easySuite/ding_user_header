@@ -1,0 +1,186 @@
+<?php
+/**
+ * @file
+ * ding_user_header.module
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function ding_user_header_block_info() {
+  $block['ding_user_header_info'] = array(
+    'info' => t('Ding user header'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $block;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ding_user_header_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'ding_user_header_info':
+      $provider_role = user_role_load_by_name('provider');
+      if (user_is_logged_in() && $provider_role && user_has_role($provider_role->rid)) {
+        $content = theme('ding_user_header_block', ding_user_header_display_callback());
+      }
+      elseif (!user_is_logged_in()) {
+        $user_login_form = drupal_get_form('user_login_block');
+        $content = drupal_render($user_login_form);
+      }
+      else {
+        $content = theme('ding_user_header_block');
+      }
+
+      $block['content'] = array(
+        '#markup' => $content,
+        '#attached' => array(
+          'css' => drupal_add_css(drupal_get_path('module', 'ding_user_header') . '/css/ding_user_header.css'),
+        ),
+      );
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Callback function.
+ */
+function ding_user_header_display_callback() {
+  global $user;
+  
+  $userID = $user->uid;
+
+  $content = array();
+
+  $loans = count(ding_provider_invoke_page('loan', 'list', $user));
+  
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My loans'),
+      'count' => $loans,
+      'url' => 'user/' . $userID . '/status/loans',
+    ),
+  );
+
+  $types = ding_provider_invoke_page('reservation', 'list', $user);
+  $count = 0;
+  foreach ($types as $type) {
+    $count += count($type);
+  }
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My reservations'),
+      'count' => $count,
+      'url' => 'user/' . $userID . '/status/reservations',
+    ),
+  );
+
+  $debts = count(ding_provider_invoke_page('debt', 'list', $user));
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My debts'),
+      'count' => $debts,
+      'url' => 'user/' . $userID . '/status/debts',
+    ),
+  );
+
+  $bookmarks = ding_bookmark_count_number($user);
+  $content['status'][] = array(
+    '#theme' => 'ding_user_header_user_stats',
+    '#status' => array(
+      'label' => t('My bookmarks'),
+      'count' => $bookmarks,
+      'url' => 'user/' . $userID . '/bookmarks',
+    ),
+  );
+
+  return $content;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ding_user_header_theme($existing, $type, $theme, $path) {
+  return array(
+    'ding_user_header_block' => array(
+      'variables' => array('variables' => array()),
+      'template' => 'ding-user-header-block',
+      'path' => $path . '/templates',
+    ),
+    'ding_user_header_user_stats' => array(
+      'variables' => array('status' => array()),
+      'template' => 'ding-user-header-stats-row',
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ding_user_header_preprocess_ding2_site_template(&$variables) {
+  // Prevent infinite redirections.
+  unset($variables['navigation']);
+
+  $block = module_invoke('ding_user_header', 'block_view', 'ding_user_header_info');
+
+  $output = '<div class="ding-user-header-block">';
+  $output .= render($block['content']);
+  $output .= '</div>';
+
+  $existing_content = $variables['content']['header'];
+
+  $variables['content']['header'] = $existing_content . $output;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ding_user_header_preprocess_25_50_25(&$vars) {
+  // Get and render form.
+  $search_form = drupal_get_form('search_block_form');
+  $search_form = drupal_render($search_form);
+
+  $search_form_rendered = '<div class="search">';
+  $search_form_rendered .= '<div class="search-field-wrapper">';
+  $search_form_rendered .= $search_form;
+  $search_form_rendered .= '</div>';
+  $search_form_rendered .= '</div>';
+
+  // Lets build a panel content from beginning with additional form.
+  // Firstly get all panes which relates to out region.
+  $panes = $vars['renderer']->prepared['panes'];
+  $panes = array_filter($panes, function($i) {
+    return $i->panel == 'main_content';
+  });
+
+  $position = 0;
+  array_walk($panes, function($i, $k) use(&$position) {
+    if ($i->subtype == 'search_result_count') {
+      $position = $i->position . '.1';
+    }
+  });
+
+  $pids = array_keys($panes);
+  $rendered_panes = $vars['renderer']->rendered['panes'];
+  //Start building panel from beginning.
+  $output[$position] = $search_form_rendered;
+  foreach ($pids as $pid) {
+    if (!empty($rendered_panes[$pid])) {
+      $output[$panes[$pid]->position] = $rendered_panes[$pid];
+    }
+  }
+  uksort($output, function($a, $b) {
+    return $a >= $b;
+  });
+  $vars['content']['main_content'] = implode('', $output);
+}
