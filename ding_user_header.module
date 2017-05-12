@@ -53,13 +53,13 @@ function ding_user_header_block_view($delta = '') {
  */
 function ding_user_header_display_callback() {
   global $user;
-  
+
   $userID = $user->uid;
 
   $content = array();
 
   $loans = count(ding_provider_invoke_page('loan', 'list', $user));
-  
+
   $content['status'][] = array(
     '#theme' => 'ding_user_header_user_stats',
     '#status' => array(
@@ -93,13 +93,14 @@ function ding_user_header_display_callback() {
     ),
   );
 
-  $bookmarks = ding_bookmark_count_number($user);
+  $bookmarks = ding_message_get_message_count();
+
   $content['status'][] = array(
     '#theme' => 'ding_user_header_user_stats',
     '#status' => array(
-      'label' => t('My bookmarks'),
+      'label' => t('My notifications'),
       'count' => $bookmarks,
-      'url' => 'user/' . $userID . '/bookmarks',
+      'url' => 'user#userlists',
     ),
   );
 
