@@ -93,13 +93,13 @@ function ding_user_header_display_callback() {
     ),
   );
 
-  $bookmarks = ding_message_get_message_count();
+  $notifications = ding_message_get_message_count();
 
   $content['status'][] = array(
     '#theme' => 'ding_user_header_user_stats',
     '#status' => array(
       'label' => t('My notifications'),
-      'count' => $bookmarks,
+      'count' => $notifications,
       'url' => 'user#userlists',
     ),
   );
