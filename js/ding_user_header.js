@@ -11,7 +11,7 @@
       else {
         // Display the element.
         $('.topbar-menu .leaf .topbar-link-menu').removeClass('active');
-        $('.new-header .js-topbar-menu').css("display", "block");		  
+        $('.new-header .js-topbar-menu').css("display", "block");
       }
     }
     else {
@@ -32,8 +32,8 @@
     // Weird way of adding 'error' class to inputs in login form.
     var hiddenLoginFormName = $('.js-topbar-user .form-item-name input');
     var hiddenLoginFormPass = $('.js-topbar-user .form-item-pass input');
-	
-	
+
+
 
     var displayedLoginFormName = $('.ding-user-header-block .form-item-name input');
     var displayedLoginFormPass = $('.ding-user-header-block .form-item-pass input');
@@ -52,5 +52,8 @@
       ddbasic_mobile_menu(true);
       e.preventDefault();
     });
+
+    // Hide top-bar notifications pane in order to remove duplication of information.
+    $('.pane-notifications-top-menu').remove();
   });
 }(jQuery));
