@@ -52,5 +52,9 @@
       ddbasic_mobile_menu(true);
       e.preventDefault();
     });
+
+    if ($('.form-item-ting-field-search').length) {
+        $("div.form-item-search-block-form").addClass("search-block-little");
+      }
   });
 }(jQuery));
