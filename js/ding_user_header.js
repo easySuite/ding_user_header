@@ -55,5 +55,9 @@
 
     // Hide top-bar notifications pane in order to remove duplication of information.
     $('.pane-notifications-top-menu').remove();
+
+    if ($('.form-item-ting-field-search').length) {
+      $("div.form-item-search-block-form").addClass("search-block-little");
+    }
   });
 }(jQuery));

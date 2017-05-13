@@ -80,7 +80,6 @@ section .navigation-wrapper {
 }
 
 .header-wrapper {
-  padding: 0 0 10px;
   overflow: hidden;
   height: auto;
 }
@@ -97,11 +96,20 @@ section .navigation-wrapper {
   display: block !important;
 }
 
+.admin-menu .header-wrapper .header-inner > section {
+  margin-bottom: 30px;
+}
+
 /* Raw styles */
 .ding-user-header-block {
   font-weight: bold;
   padding-top: 18px;
   padding-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .ding-user-header-block {
+    padding-top: 0;
+  }
 }
 .ding-user-header-block input[name="name"],
 .ding-user-header-block input[name="pass"] {
