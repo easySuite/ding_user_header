@@ -65,7 +65,6 @@ section .navigation-wrapper {
 }
 
 .header-wrapper{
-  padding: 0 0 10px;
   overflow: hidden;
   height: auto;
 }
@@ -83,12 +82,19 @@ section .navigation-wrapper {
 
 }
 
+.admin-menu .header-wrapper .header-inner>section {
+  margin-bottom: 30px;
+}
+
 /* Raw styles */
 .ding-user-header-block {
   font-weight: bold;
   padding-top: 18px;
   padding-bottom: 10px;
 
+  @include small-medium() {
+    padding-top: 0;
+  }
 
   input[name="name"],
   input[name="pass"]{
