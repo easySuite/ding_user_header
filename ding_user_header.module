@@ -94,6 +94,7 @@ function ding_user_header_display_callback() {
   );
 
   $notifications = ding_message_get_message_count();
+  $notifications = (empty($notifications)) ? '0' : $notifications;
 
   $content['status'][] = array(
     '#theme' => 'ding_user_header_user_stats',
