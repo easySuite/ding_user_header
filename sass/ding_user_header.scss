@@ -27,6 +27,27 @@ $zen-gutters:             20px;
 
 $tablet: "(max-width: 1024px)";
 
+.pane-search-form .search-field-wrapper #search-block-form .form-item-ting-field-search label {
+  position: initial;
+  top: 0;
+  margin-left: 0;
+  margin-bottom:5px;
+  font-size: 100%;
+}
+
+.front.not-logged-in {
+  #search-block-form {
+    .form-item-ting-field-search.search-ting-field {
+      top: 10px;
+      right: 32px;
+
+      @media #{$tablet} {
+        right: 57px;
+      }
+    }
+  }
+}
+
 .header-inner {
   $zen-column-count: 12;
   $zen-gutter-width: 10px;
@@ -51,22 +72,23 @@ div.ding-user-header.header-right{
     width: 20%;
     @include small-medium() {
       width: 100%;
+      margin-left: 31px;
     }
 
     span.select2-container {
-      width: 165px !important;
+      width: 165px;
 
       @include small-medium() {
-        width: 100% !important;
+        width: 100%;
       }
     }
   }
 
   #search-block-form {
    .form-item-search-block-form.search-block-little {
-    width: 67%;
+    width: 73%;
     @media #{$tablet} {
-      width: 62%;
+      width: 68%;
     }
     @include small-medium() {
       width: 100%;
@@ -74,9 +96,9 @@ div.ding-user-header.header-right{
   }
 
   .form-actions.form-actions-small {
-      margin-right: 32%;
+      margin-right: 27%;
       @media #{$tablet} {
-        margin-right: 38%;
+        margin-right: 32%;
       }
     }
   }
@@ -87,7 +109,7 @@ div.ding-user-header.header-right{
    #search-block-form .form-item-ting-field-search.search-ting-field {
     width: 12%;
     span.select2-container {
-      width: 165px !important;
+      width: 165px;
     }
   }
 }
