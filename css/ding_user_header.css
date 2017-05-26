@@ -45,6 +45,64 @@ div .ding-user-header-block {
   box-sizing: border-box;
 }
 
+div.ding-user-header.header-right {
+  float: right;
+  width: 83.33333%;
+  margin-right: 0%;
+  margin-left: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+  width: 20%;
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+    width: 100%;
+  }
+}
+.front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+  width: 165px !important;
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+    width: 100% !important;
+  }
+}
+.front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+  width: 67%;
+}
+@media (max-width: 1024px) {
+  .front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+    width: 62%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+    width: 100%;
+  }
+}
+.front.not-logged-in #search-block-form .form-actions.form-actions-small {
+  margin-right: 32%;
+}
+@media (max-width: 1024px) {
+  .front.not-logged-in #search-block-form .form-actions.form-actions-small {
+    margin-right: 38%;
+  }
+}
+
+.front.logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+  width: 12%;
+}
+.front.logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+  width: 165px !important;
+}
+
 section .user-field-wrapper {
   float: right;
   width: 33.33333%;
