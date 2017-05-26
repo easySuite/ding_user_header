@@ -21,6 +21,29 @@
    ========================================================================== */
 /* Colors variables
    ========================================================================== */
+.pane-search-form .search-field-wrapper #search-block-form .form-item-ting-field-search label {
+  position: initial;
+  top: 0;
+  margin-left: 0;
+  margin-bottom: 5px;
+  font-size: 100%;
+}
+
+.front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+  top: 10px;
+  right: 32px;
+}
+@media (max-width: 1024px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+    right: 57px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+    right: 30px;
+  }
+}
+
 section .pane-search-form {
   float: left;
   width: 66.66667%;
@@ -43,6 +66,65 @@ div .ding-user-header-block {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+div.ding-user-header.header-right {
+  float: right;
+  width: 83.33333%;
+  margin-right: 0%;
+  margin-left: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+  width: 20%;
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+    width: 100%;
+    margin-left: 31px;
+  }
+}
+.front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+  width: 165px;
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+    width: 100%;
+  }
+}
+.front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+  width: 73%;
+}
+@media (max-width: 1024px) {
+  .front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+    width: 68%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
+    width: 100%;
+  }
+}
+.front.not-logged-in #search-block-form .form-actions.form-actions-small {
+  margin-right: 27%;
+}
+@media (max-width: 1024px) {
+  .front.not-logged-in #search-block-form .form-actions.form-actions-small {
+    margin-right: 32%;
+  }
+}
+
+.front.logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+  width: 12%;
+}
+.front.logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
+  width: 165px;
 }
 
 section .user-field-wrapper {

@@ -57,7 +57,11 @@
     $('.pane-notifications-top-menu').remove();
 
     if ($('.form-item-ting-field-search').length) {
-      $("div.form-item-search-block-form").addClass("search-block-little");
+      $(".front div.form-item-search-block-form").addClass("search-block-little");
+      $(".front div.form-item-ting-field-search").addClass("search-ting-field");
+      $(".front div.ding-user-header").addClass("header-right");
+      $(".front #search-block-form .form-actions").addClass("form-actions-small");
     }
   });
+
 }(jQuery));
