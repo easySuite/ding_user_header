@@ -38,6 +38,11 @@
     right: 57px;
   }
 }
+@media only screen and (max-width: 768px) {
+  .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
+    right: 30px;
+  }
+}
 
 section .pane-search-form {
   float: left;
