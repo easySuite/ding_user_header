@@ -57,15 +57,15 @@
     $('.pane-notifications-top-menu').remove();
 
     if ($('.form-item-ting-field-search').length) {
-      $('.front div.form-item-search-block-form').addClass('search-block-little');
-      $('.front div.form-item-ting-field-search').addClass('search-ting-field');
-      $('.front div.ding-user-header').addClass('header-right');
-      $('.front #search-block-form .form-actions').addClass('form-actions-small');
+      $('div.form-item-search-block-form').addClass('search-block-little');
+      $('div.form-item-ting-field-search').addClass('search-ting-field');
+      $('div.ding-user-header').addClass('header-right');
+      $('.search-field-wrapper .form-actions').addClass('form-actions-small');
     }
 
     if (!($('.form-item-ting-field-search').length)) {
       $('.form-item-search-block-form').attr('id', 'form-search-logged-in');
-      $('.front #search-block-form .form-actions').addClass('form-actions-logged-in');
+      $('#search-block-form .form-actions').addClass('form-actions-logged-in');
    }
   });
 
