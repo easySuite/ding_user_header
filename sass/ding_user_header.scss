@@ -50,6 +50,13 @@ $tablet: "(max-width: 1024px)";
       }
     }
   }
+
+  @include small-medium() {
+    .search-field-wrapper #search-radios{
+      margin-top: 10px;
+      width: auto;
+    }
+  }
 }
 
 .header-inner {
@@ -88,6 +95,13 @@ div.ding-user-header.header-right{
     }
   }
 
+  @include small-medium() {
+    .search-field-wrapper #search-radios{
+      margin-top: 10px;
+      width: auto;
+    }
+  }
+
   .search-radios-inline{
     top: 28px
   }
@@ -109,6 +123,110 @@ div.ding-user-header.header-right{
         margin-right: 32%;
       }
     }
+  }
+}
+
+.not-front.not-logged-in {
+  form .form-item-ting-field-search.search-ting-field {
+    width: 20%;
+    margin-left: 20px;
+
+    @include small-medium() {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    span.select2-container {
+      width: 165px;
+
+      @include small-medium() {
+        width: 100%;
+      }
+    }
+  }
+  @include small-medium() {
+    .search-field-wrapper #search-radios{
+      margin-top: 10px;
+      width: auto;
+    }
+  }
+
+  .search-radios-inline{
+    top: 28px;
+  }
+
+  form {
+   .form-item-search-block-form.search-block-little {
+    width: 73%;
+    @media #{$tablet} {
+      width: 68%;
+    }
+    @include small-medium() {
+      width: 100%;
+    }
+  }
+
+  .form-actions.form-actions-small {
+      margin-right: 27%;
+
+      @media #{$tablet} {
+        margin-right: 32%;
+      }
+
+      @include small-medium {
+        margin-right: 0;
+
+        input {
+          height: 43px;
+        }
+      }
+    }
+  }
+}
+
+.not-front.logged-in {
+   form .form-item-ting-field-search.search-ting-field {
+    width: 12%;
+    margin-right: 22px;
+    top: 0px;
+    position: absolute;
+    right: 0;
+
+    span.select2-container {
+      width: 165px;
+    }
+  }
+
+  form {
+    .search-radios-inline{
+      top: 38px
+    }
+  }
+
+  form {
+    .form-item-search-block-form.search-block-little {
+      width: 83%;
+    }
+
+    .form-actions.form-actions-small {
+      margin-right: 17%;
+
+      @include small-medium {
+        margin-right: 0;
+
+        input {
+          height: 43px;
+        }
+      }
+    }
+  }
+
+  #form-search-logged-in {
+    width: 100%;
+  }
+
+  .form-actions-logged-in {
+    margin-right: 0;
   }
 }
 
