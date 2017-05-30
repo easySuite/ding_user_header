@@ -2,6 +2,6 @@ name = Ding User Header
 description = Rendering login block and user loan stats.
 core = 7.x
 scripts[] = 'js/ding_user_header.js'
-version = 7.x-3.0.3
+version = 7.x-3.0.4
 package = easyOPAC
 dependencies[] = ding_message
