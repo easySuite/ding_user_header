@@ -29,6 +29,10 @@
   font-size: 100%;
 }
 
+.search-field-wrapper #search-radios .form-type-radio {
+  margin-right: 0;
+}
+
 .front.not-logged-in #search-block-form .form-item-ting-field-search.search-ting-field {
   top: 10px;
   right: 32px;
@@ -46,7 +50,11 @@
 @media only screen and (max-width: 768px) {
   .front.not-logged-in .search-field-wrapper #search-radios {
     margin-top: 10px;
-    width: auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .front.not-logged-in #search-radios .form-item.form-item-searches {
+    width: 100%;
   }
 }
 
@@ -107,7 +115,11 @@ div.ding-user-header.header-right {
 @media only screen and (max-width: 768px) {
   .front.not-logged-in .search-field-wrapper #search-radios {
     margin-top: 10px;
-    width: auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .front.not-logged-in #search-radios .form-item.form-item-searches {
+    width: 100%;
   }
 }
 .front.not-logged-in .search-radios-inline {
@@ -156,7 +168,11 @@ div.ding-user-header.header-right {
 @media only screen and (max-width: 768px) {
   .not-front.not-logged-in .search-field-wrapper #search-radios {
     margin-top: 10px;
-    width: auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .not-front.not-logged-in #search-radios .form-item.form-item-searches {
+    width: 100%;
   }
 }
 .not-front.not-logged-in .search-radios-inline {
