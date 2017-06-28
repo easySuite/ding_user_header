@@ -21,6 +21,10 @@
    ========================================================================== */
 /* Colors variables
    ========================================================================== */
+#search-radios .form-radios .form-item {
+  display: none;
+}
+
 .pane-search-form .search-field-wrapper #search-block-form .form-item-ting-field-search label {
   position: initial;
   top: 0;
@@ -56,6 +60,10 @@
   .front.not-logged-in #search-radios .form-item.form-item-searches {
     width: 100%;
   }
+}
+
+.header-inner > section.wayf-wrapper {
+  top: 0;
 }
 
 section .pane-search-form {
@@ -122,9 +130,6 @@ div.ding-user-header.header-right {
     width: 100%;
   }
 }
-.front.not-logged-in .search-radios-inline {
-  top: 28px;
-}
 .front.not-logged-in #search-block-form .form-item-search-block-form.search-block-little {
   width: 73%;
 }
@@ -165,6 +170,11 @@ div.ding-user-header.header-right {
     width: 100%;
   }
 }
+.not-front.not-logged-in form .form-item-ting-field-search.search-ting-field form #search-radios.search-radios-inline {
+  top: initial;
+  padding-top: 20px;
+  left: initial;
+}
 @media only screen and (max-width: 768px) {
   .not-front.not-logged-in .search-field-wrapper #search-radios {
     margin-top: 10px;
@@ -174,9 +184,6 @@ div.ding-user-header.header-right {
   .not-front.not-logged-in #search-radios .form-item.form-item-searches {
     width: 100%;
   }
-}
-.not-front.not-logged-in .search-radios-inline {
-  top: 28px;
 }
 .not-front.not-logged-in form .form-item-search-block-form.search-block-little {
   width: 73%;
@@ -208,6 +215,17 @@ div.ding-user-header.header-right {
   }
 }
 
+.not-front.logged-in.admin-menu form #search-radios.search-radios-inline {
+  top: initial;
+  padding-top: 7px;
+  left: initial;
+}
+
+.front.logged-in.admin-menu form #search-radios.search-radios-inline {
+  padding-top: 7px;
+  left: initial;
+}
+
 .not-front.logged-in form .form-item-ting-field-search.search-ting-field {
   width: 12%;
   margin-right: 22px;
@@ -218,8 +236,10 @@ div.ding-user-header.header-right {
 .not-front.logged-in form .form-item-ting-field-search.search-ting-field span.select2-container {
   width: 165px;
 }
-.not-front.logged-in form .search-radios-inline {
-  top: 38px;
+.not-front.logged-in form #search-radios.search-radios-inline {
+  top: initial;
+  padding-top: 20px;
+  left: initial;
 }
 .not-front.logged-in form .form-item-search-block-form.search-block-little {
   width: 83%;
@@ -249,9 +269,6 @@ div.ding-user-header.header-right {
 }
 .front.logged-in #search-block-form .form-item-ting-field-search.search-ting-field span.select2-container {
   width: 165px;
-}
-.front.logged-in #search-block-form .search-radios-inline {
-  top: 38px;
 }
 .front.logged-in #search-block-form .form-item-search-block-form.search-block-little {
   width: 83%;
@@ -309,8 +326,48 @@ section .navigation-wrapper {
   display: none !important;
 }
 
-.header-wrapper .header-inner > section {
+@media only screen and (max-width: 480px) {
+  .responsive-layout-mobile .header-inner.mobile {
+    padding-bottom: 60px;
+  }
+}
+
+.new-header .header-wrapper .header-inner > section {
   padding: 10px;
+}
+.new-header .header-wrapper .header-inner > section.wayf-wrapper {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  top: auto;
+}
+@media only screen and (max-width: 480px) {
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper {
+    height: auto;
+    width: auto;
+    right: 0;
+    left: 0;
+    bottom: 10px;
+  }
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper .pane-ding-gatewayf-registration-registration,
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper .pane-ding-gatewayf-login {
+    display: block;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper {
+    bottom: -40px;
+    width: auto;
+    right: 0;
+    height: auto;
+  }
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper .pane-ding-gatewayf-registration-registration,
+  .new-header .header-wrapper .header-inner > section.wayf-wrapper .pane-ding-gatewayf-login {
+    width: auto;
+    right: 0;
+    left: 0;
+  }
 }
 
 .not-logged-in .js-topbar-search {

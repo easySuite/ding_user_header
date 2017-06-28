@@ -67,6 +67,17 @@
       $('.form-item-search-block-form').attr('id', 'form-search-logged-in');
       $('#search-block-form .form-actions').addClass('form-actions-logged-in');
    }
+
+    if ($('.ding-gatewayf--login-block').length) {
+      setTimeout(function() {
+        $('.ding-gatewayf--registration').css('display', '');
+        $('.ding-gatewayf--login-block').css('display', '');
+      }, 0);
+
+      $('.not-logged-in .header-wrapper').css('padding-bottom', '40px')
+      $('.header-inner').addClass('clearfix');
+      $('.responsive-layout-mobile .header-inner').addClass('mobile');
+   }
   });
 
 }(jQuery));
